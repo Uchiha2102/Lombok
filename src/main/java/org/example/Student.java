@@ -1,16 +1,15 @@
 package org.example;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
+@With
+@Builder
 
 public class Student {
-    int id;
-    String name;
-    String address;
-    int grade;
+    private final int id;
+    private final String name;
+    private final String address;
+    private final double grade;
 }

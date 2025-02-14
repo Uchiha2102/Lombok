@@ -1,9 +1,18 @@
 package org.example;
 
-public record Teacher(
+import lombok.AllArgsConstructor;
 
-        int id,
-        String name,
-        String subject
-) {
+import lombok.Builder;
+import lombok.Data;
+import lombok.With;
+
+@Data
+@AllArgsConstructor
+@With
+@Builder
+public class Teacher {
+    private final int id;
+    private final String name;
+    private final String subject;
 }
+

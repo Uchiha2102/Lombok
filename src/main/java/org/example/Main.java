@@ -3,32 +3,47 @@ package org.example;
 public class Main {
     public static void main(String[] args) {
 
-        // Students
-        Student student = new Student(1, "Harry Potter", "Hauptstrasse 8", 10);
-        Student student2 = new Student(2, "Thomas Raven ", "Friedrichstrasse 10", 8);
+        //Builder
+        Teacher teacher = Teacher.builder()
+                .id(1)
+                .name("Albert Einstein")
+                .subject("physics")
+                .build();
 
-        // Teacher
-        Teacher teacher = new Teacher(1, "Alex Cross", "Computer science");
+        Teacher updatedTeacher = teacher.withName("Albert Einstein++++");
+        ;
+        Student student1 = Student.builder()
+                .id(1)
+                .name("Toni Busch")
+                .address("123 Hauptstrasse")
+                .grade(10)
+                .build();
 
-        //Course
-        Course course = new Course(1, "Computer science", teacher);
+        Student updatedStudent1 = student1.withAddress("Berliner Str 8");
 
-        //Getter test
-        System.out.println("Student Name " + student.getName());
-        System.out.println("Course Name : " + course.getName());
+        Student stundent2 = Student.builder()
+                .id(1)
+                .name("Ron Weasley")
+                .address("123 Main St")
+                .grade(10)
+                .build();
 
-        //Setter test
-        student.setGrade(9);
-        System.out.println("Updated Student Grade: " + student.getGrade());
-        course.setName("Computer science + Java");
-        System.out.println("Course Name : " + course.getName());
+        Course course = Course.builder()
+                .id(5)
+                .name("Algebra")
+                .teacher(teacher)
+                .build();
+        Course updatedCourse = course.withName("Computer science");
 
+        System.out.println("Original Teacher: " + teacher);
+        System.out.println("Updated Teacher: " + updatedTeacher);
 
-        // toString() testen
-        System.out.println("\nTeacher: " + teacher);
-        System.out.println("Student 1: " + student);
-        System.out.println("Student 2: " + student2);
-        System.out.println("Course: " + course);
+        System.out.println("Original Student: " + student1);
+        System.out.println("Updated Student: " + updatedStudent1);
+
+        System.out.println("Original Course: " + course);
+        System.out.println("Updated Course: " + updatedCourse);
+
 
     }
 }
