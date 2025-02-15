@@ -43,6 +43,8 @@ public class Main {
 
         System.out.println("Original Course: " + course);
         System.out.println("Updated Course: " + updatedCourse);
+        System.out.println("NEW BRANCH");
+
 
 
     }
